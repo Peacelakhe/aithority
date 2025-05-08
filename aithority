@@ -1,0 +1,81 @@
+// Full React-based frontend for AI Automation Learning Platform // Technologies: React, TailwindCSS, React Router
+
+import React from "react"; import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+const Home = () => (
+
+  <div className="p-8 max-w-5xl mx-auto">
+    <h1 className="text-4xl font-bold mb-4">AI Automation Mastery</h1>
+    <p className="text-lg mb-4">
+      Learn to build powerful AI automations from scratch. We don’t just automate — we teach you how.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="p-4 bg-gray-100 rounded-xl shadow">
+        <h2 className="text-xl font-semibold mb-2">What You'll Learn</h2>
+        <ul className="list-disc list-inside space-y-1">
+          <li>How AI works and what you can automate</li>
+          <li>Python scripting for automation</li>
+          <li>Using APIs like OpenAI, Zapier, Notion, Slack</li>
+          <li>Real-world automation projects</li>
+        </ul>
+      </div>
+      <div className="p-4 bg-gray-100 rounded-xl shadow">
+        <h2 className="text-xl font-semibold mb-2">Pricing</h2>
+        <p className="mb-2">Choose a plan that suits your learning journey:</p>
+        <ul className="list-disc list-inside">
+          <li><strong>Free:</strong> Intro to AI Automation (2 modules)</li>
+          <li><strong>Pro – $29/mo:</strong> Full course access, code playground, community</li>
+          <li><strong>Team – $99/mo:</strong> Up to 10 users, project templates, support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);const Course = () => (
+
+  <div className="p-8 max-w-3xl mx-auto">
+    <h2 className="text-3xl font-bold mb-4">Course Modules</h2>
+    <ol className="list-decimal list-inside space-y-2">
+      <li>Intro to AI & Automation</li>
+      <li>Python Basics for Automation</li>
+      <li>APIs & Webhooks (OpenAI, Zapier)</li>
+      <li>Building AI Bots & Workflows</li>
+      <li>Project: Auto-Email Responder</li>
+      <li>Project: Website Content Generator</li>
+    </ol>
+  </div>
+);const APIOverview = () => (
+
+  <div className="p-8 max-w-3xl mx-auto">
+    <h2 className="text-3xl font-bold mb-4">APIs We Use</h2>
+    <ul className="list-disc list-inside space-y-2">
+      <li><strong>OpenAI API:</strong> GPT-based content generation</li>
+      <li><strong>Zapier Webhooks:</strong> Connect apps and automate workflows</li>
+      <li><strong>Notion API:</strong> Task logging & automation boards</li>
+      <li><strong>Gmail API:</strong> Email automation projects</li>
+    </ul>
+  </div>
+);const Progress = () => (
+
+  <div className="p-8 max-w-2xl mx-auto">
+    <h2 className="text-3xl font-bold mb-4">Your Progress</h2>
+    <p className="mb-4">Track which modules you've completed. (Backend logic required.)</p>
+    <ul className="list-inside list-disc">
+      <li>Intro to AI – Completed</li>
+      <li>Python Basics – In Progress</li>
+      <li>APIs & Webhooks – Locked</li>
+    </ul>
+  </div>
+);const Navbar = () => (
+
+  <nav className="bg-blue-600 text-white p-4">
+    <div className="max-w-6xl mx-auto flex justify-between">
+      <Link to="/" className="font-bold text-xl">AI Automation</Link>
+      <div className="space-x-4">
+        <Link to="/course">Course</Link>
+        <Link to="/apis">APIs</Link>
+        <Link to="/progress">Progress</Link>
+      </div>
+    </div>
+  </nav>
+);export default function App() { return ( <Router> <Navbar /> <Routes> <Route path="/" element={<Home />} /> <Route path="/course" element={<Course />} /> <Route path="/apis" element={<APIOverview />} /> <Route path="/progress" element={<Progress />} /> </Routes> </Router> ); }
+
